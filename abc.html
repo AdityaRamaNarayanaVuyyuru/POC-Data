@@ -1,0 +1,80 @@
+<script>
+  (function() {
+        var tvc_pageTitle = document.querySelector('title').innerText.trim().replace(/&/gm);
+        if(tvc_pageTitle==""){
+        tvc_pageTitle = document.location.pathname
+        }
+        var tvc_total_ms = 0;
+        var tvc_start_time;
+        var tvc_form_phase;
+        var tvc_eventListenerBindFlag;
+		var targetNode = document.getElementById('ui-datepicker-div');
+		var observer = new MutationObserver(function(){
+		if(targetNode.style.display == 'none'){
+		console.log(document.getElementById('bodID').value) } //});
+    		var date=document.getElementById('bodID').value;
+			observer.observe(targetNode, { attributes: true, childList: false });   
+  
+      //  	document.addEventListener('change', function(e) {
+  
+          if ({{tvc_closest_cjs}}(e.target, 'form')) {
+            var tvc_formName = {{tvc_closest_cjs}}(e.target, 'form').getAttribute('id');
+            var tvc_elapsed_ms, tvc_elapsed_sec, tvc_fieldType, tvc_fieldName;
+            var tvc_end_time = Date.now();
+            var tvc_val = e.target.value;
+            tvc_elapsed_ms = tvc_end_time - tvc_start_time;
+            tvc_elapsed_sec = tvc_elapsed_ms / 1000;
+            tvc_fieldType = e.target.type;
+          if(e.target.getAttribute('id')!=null)  {
+          tvc_fieldName = e.target.getAttribute('id')
+              }
+          else         
+         {
+           tvc_fieldName = e.target.getAttribute('class');
+                     }
+            switch (e.target.tagName) {
+              case "INPUT":
+                if (e.target.type == "text" || e.target.type == "email" || e.target.type == "tel" || e.target.type == "number"){
+                  if(e.target.id.indexOf('bodID') == -1){
+                    if(e.target.id.match(/(ui-datepicker-div|bodID).*/)){
+                    }
+					 else 
+ 					(e.target.name.match(/(date_of_birth_dateTrue).*/));
+                    {
+						}
+                       {
+                    	var date=e.target.value;
+                    	var specialChars = "!#$^&%*()+=-[]\{}|:<>?,";
+
+                      for (var i = 0; i < specialChars.length; i++) {
+                          date = date.replace(new RegExp("\\" + specialChars[i], "gi"), "");
+                      }
+                      setTimeout(function(){
+                        
+                        var tvc_er={{tvc_closest_cjs}}(e.target,'div').querySelector('.errormsg,.v1_errormsg,#error_mobile_number,.errorMian,#RVLoanacno,#regexpLoan');
+                        if(tvc_er.clientHeight==0 ||tvc_er.innerText==""){
+                        if(document.querySelector('.modal-view')){ 
+                        }
+                     
+  var tvc_cid1={{tvc_client_id_cjs}}.split('.')[0];
+  var tvc_cid2={{tvc_client_id_cjs}}.split('.')[1];
+  var tvc_URL = window.location.href;
+  var xhttp = new XMLHttpRequest();
+   xhttp.open("POST", "https://tvc-form-data-capture-staging-dot-bajaj-finserv-177211.el.r.appspot.com/collect-partial-save", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+           xhttp.send( "cid1="+tvc_cid1+"&cid2="+tvc_cid2+"&field_name="+tvc_fieldName+"&field_value="+date+"&form_name="+tvc_pageTitle+tvc_popupFlag+"&url="+tvc_URL+"&userstatus=field_change");
+  
+
+                        tvc_pageTitle=document.querySelector('title').innerText.trim();
+                        }
+                      },300);
+                    }                   
+                  }
+                }
+              
+                break;
+           }
+        }
+      }, true);
+ })();
+</script>

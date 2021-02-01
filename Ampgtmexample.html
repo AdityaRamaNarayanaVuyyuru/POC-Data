@@ -1,0 +1,72 @@
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <title>My AMP Page</title>
+  <link rel="canonical" href="self.html" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <style amp-custom>
+    h1 {
+      margin: 1rem;
+    }
+  </style>
+  <!-- AMP Analytics --><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+</head>
+<body>
+  <!-- Google Tag Manager -->
+<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-TQ6S57B&gtm.url=SOURCE_URL" data-credentials="include">
+  <script type="application/json">
+    {
+      "vars":{
+        "pageType":"home",
+        "url":"${ampdocUrl}"
+      }
+    }
+  </script>
+</amp-analytics>
+
+  <h1>Hello AMPHTML World!</h1>
+  <form class="sample-form"
+  method="post"
+  action-xhr="/documentation/examples/api/submit-form-input-text-xhr"
+  target="_top"
+  custom-validation-reporting="show-first-on-submit">
+  <input type="text"
+    id="show-first-on-submit-name"
+    name="name" data-vars-value='${totalEngagedTime}'
+    placeholder="Name..."
+    required
+    pattern="\p{L}+\s\p{L}+">
+  <span visible-when-invalid="valueMissing"
+    validation-for="show-first-on-submit-name"></span>
+  <span visible-when-invalid="patternMismatch"
+    validation-for="show-first-on-submit-name">
+    Please enter your first and last name separated by a space (e.g. Jane Miller)
+  </span>
+  <input type="email"
+    id="show-first-on-submit-email"
+    name="email"
+    placeholder="Email..."
+    required>
+  <span visible-when-invalid="valueMissing"
+    validation-for="show-first-on-submit-email"></span>
+  <span visible-when-invalid="typeMismatch"
+    validation-for="show-first-on-submit-email"></span>
+  <input type="submit"
+    value="Subscribe">
+  <div submit-success>
+    <template type="amp-mustache">
+      Success! Thanks {{name}} for trying the <code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how <code>amp-form</code> handles errors.
+    </template>
+  </div>
+  <div submit-error>
+    <template type="amp-mustache">
+      Error! Thanks {{name}} for trying the <code>amp-form</code> demo with an error response.
+    </template>
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,299 @@
+
+<!doctype html>
+<html amp >
+  <head>
+<!-- AMP Analytics -->
+
+      
+
+         
+    <meta charset="utf-8">
+     <meta name="viewport"content="width=device-width,minimum-scale=1,initial-scale=1">
+     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script> 
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+
+    <title>My Story</title>
+    
+   
+    
+<link rel="canonical" href="amp_story_gtm" />
+
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      amp-story-page {
+        background: white;
+      }
+      h1 {
+        font-size: 2.875em;
+        font-weight: normal;
+        line-height: 1.174;
+        text-transform: uppercase;
+      }
+      @media (prefers-color-scheme: dark) {
+        .wrapper, .wrapper h1 {
+          color: white;
+          background-color: black;
+        }
+
+        #dark-mode-checkbox,
+        #dark-mode-label {
+          display: none;
+        }
+      }
+      #dark-mode-checkbox,
+      #dark-mode-label {
+        position: absolute;
+      }
+      #dark-mode-checkbox {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+<amp-analytics type="gtag" data-credentials="include"> <script type="application/json"> {
+
+        "vars": {
+
+            "gtag_id": "UA-1234567-11",
+
+            "config":{
+
+                
+
+            }
+
+        },
+        "triggers": {
+                 "trackPageview": {
+                  "on": "story-page-visible",
+                  "request": "pageview",
+                  "extraUrlParams": {
+                    "cd1":"${title}",
+                    "cd2":"${storyPageIndex}",
+                    "cd3":"${clientId}"
+                    }
+                 }
+               },
+
+        "triggers": {
+
+
+            "storyProgress": {
+
+                "on": "story-page-visible",
+
+                "vars": {
+
+                    "event_name": "custom",
+
+                    "event_action": "story_progress",
+
+                    "event_category": "${title}",
+
+                    "event_label": "${storyPageId}",
+
+                    "send_to": ["UA-1234567-11"]
+
+                }
+
+            },
+
+            "storyEnd": {
+
+                "on": "story-last-page-visible",
+
+                "vars": {
+
+                    "event_name": "custom",
+
+                    "event_action": "story_complete",
+
+                    "event_category": "${title}",
+
+                    "send_to": ["UA-1234567-11"]
+
+                }
+
+            },
+
+            "anchorClicks": {
+
+                "on": "click",
+
+                "request": "pageview",
+
+                "selector": "a.cta-a",
+
+                "vars": {
+
+                    "event_name": "custom",
+
+                    "event_action": "cta_clicked",
+
+                    "event_category": "${title}",
+
+                    "event_label": "${ctalink}",
+
+                    "send_to": ["UA-1234567-11"]
+
+                }
+
+            }
+
+        }
+
+    } </script> </amp-analytics>
+
+<amp-analytics type="googleanalytics" > 
+             <script type="application/json">
+             {
+               "vars": { 
+                 "account": " UA-97665797-4"
+                       },
+               "triggers": {
+                 "trackPageview": {
+                  "on": "story-page-visible",
+                  "request": "pageview"
+                  
+                 }
+               }
+             }
+   
+                  </script>
+
+</amp-analytics>
+ 
+    <amp-story standalone publisher="aditya" >
+        
+      <amp-story-page id="cover"  >
+      <amp-story-grid-layer template="vertical">
+	
+
+          <h1>Hello World</h1>
+          <p>This is the cover page of this story.</p>
+      </amp-story-grid-layer>
+      </amp-story-page>
+
+      <amp-story-page id="page-1" >
+      <amp-story-grid-layer template="vertical">
+
+
+          <h1>First Page</h1>
+          <p>This is the first page of this story.</p>
+          
+        </amp-story-grid-layer>
+        <amp-video controls
+  width="640"
+  height="360"
+  layout="responsive"
+  class="myVideo"
+  poster="/static/inline-examples/images/kitten-playing.png">
+  <source src="analytics.mp4"
+    type="video/mp4" />
+  <source src="/static/inline-examples/videos/kitten-playing.mp4"
+    type="video/mp4" />
+  <div fallback>
+    <p>This browser does not support the video element.</p>
+  </div>
+</amp-video>
+      </amp-story-page>
+
+      <amp-story-page id="page-2" >
+        <amp-story-grid-layer template="vertical">
+
+
+
+          <h1>Second Page</h1>
+          <p>This is the second page of this story.</p>
+          <a href="www.ndtv.com" class="cta-a">www.ndtv.com</a>
+        </amp-story-grid-layer>
+        
+      </amp-story-page>
+      <amp-story-page id="page-3" >
+        <amp-story-grid-layer template="vertical">
+
+
+          <h1>Third Page</h1>
+          <p>This is the third page of this story.</p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+
+      <amp-story-page id="page-4" >
+        <amp-story-grid-layer template="vertical">
+
+
+          <h1>Fourth Page</h1>
+          <p>This is the fourth page of this story.</p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+
+      <amp-story-page id="page-5" >
+        <amp-story-grid-layer template="vertical">
+          <h1>Fifth Page</h1>
+          <p>This is the fifth page of this story.</p>
+        </amp-story-grid-layer>
+
+        <amp-video controls
+  width="640"
+  height="360"
+  layout="responsive"
+  class="myVideo"
+  poster="/static/inline-examples/images/kitten-playing.png">
+  <source src="movie.mp4"
+    type="video/mp4" />
+  <source src="analytics.mp4"
+    type="video/mp4" />
+  <div fallback>
+    <p>This browser does not support the video element.</p>
+  </div>
+</amp-video>
+      </amp-story-page>
+
+      <amp-story-page id="page-6" >
+        <amp-story-grid-layer template="vertical">
+
+
+
+	<h1>Sixth Page</h1>
+<amp-img
+            src="https://example.ampproject.org/helloworld/bg2.gif"
+            width="900"
+            height="1600"
+          >
+          <p>This is the sixth page of this story.</p>
+         
+             
+        </amp-story-grid-layer>
+        
+
+            <amp-img
+  alt="A view of the sea"
+  id="the-button"
+  src="/static/inline-examples/images/sea.jpg"
+  width="900"
+  height="675"
+  layout="responsive"
+>
+<button type="button" > <a class="button" href="www.sonyliv.com" >
+            <p>www.sonyliv.com
+            </p></a></button>
+</amp-img>
+      </amp-story-page>
+    
+
+  <amp-story-bookend src="bookend.json" layout="nodisplay"></amp-story-bookend>
+
+    </amp-story>
+
+
+
+  </body>
+</html>
